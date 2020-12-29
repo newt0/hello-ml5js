@@ -9,3 +9,13 @@ function preload() {
   classifier = ml5.imageClassifier("MobileNet");
   img = loadImage("images/bird.png");
 }
+
+// Setup, classify, and display
+function setup() {
+  // create a canvas to render our image
+  createCanvas(400, 400);
+  // .classify() function takes two parameters: 1.the image you want to classify 2.a callback function called gotResult
+  classifier.classfy(img, gotResult);
+  // render the image to the canvas
+  image(img, 0, 0);
+}
