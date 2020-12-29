@@ -19,3 +19,17 @@ function setup() {
   // render the image to the canvas
   image(img, 0, 0);
 }
+
+// Define the gotResult() callback function
+function gotResult(error, results) {
+  // Display error in the console
+  if (error) {
+    console.log(error);
+  } else {
+    // The results are in an array ordered by confidence.
+    console.log(results);
+    // create a div that displays the label and the confidence of the content of the image that has been classified
+    createDiv(`Label: ${results[0].label}`);
+    createDiv(`Confidence: ${nf(results[0].confidence, 0, 2)}`); // The nf() function is a p5 function that formats our number to a nicer string.
+  }
+}
